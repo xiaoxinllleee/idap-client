@@ -1,0 +1,289 @@
+<template>
+  <a-modal
+    :title="title"
+    :width="800"
+    :visible="visible"
+    :confirmLoading="confirmLoading"
+    @ok="handleOk"
+    @cancel="handleCancel"
+    cancelText="关闭">
+    
+    <a-spin :spinning="confirmLoading">
+      <a-form :form="form">
+      
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="交易日期">
+          <a-input placeholder="请输入交易日期" v-decorator="['txDate', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="交易时间">
+          <a-input placeholder="请输入交易时间" v-decorator="['txTime', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="前置流水号">
+          <a-input placeholder="请输入前置流水号" v-decorator="['txSeqNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="序号">
+          <a-input placeholder="请输入序号" v-decorator="['serialNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="账号">
+          <a-input placeholder="请输入账号" v-decorator="['acctNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="行号">
+          <a-input placeholder="请输入行号" v-decorator="['bankNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="行名">
+          <a-input placeholder="请输入行名" v-decorator="['bankName', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="账号类型">
+          <a-input placeholder="请输入账号类型" v-decorator="['acctType', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="户名">
+          <a-input placeholder="请输入户名" v-decorator="['acctName', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="证件类型">
+          <a-input placeholder="请输入证件类型" v-decorator="['certType', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="证件号码">
+          <a-input placeholder="请输入证件号码" v-decorator="['certCode', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="企业明细流水号">
+          <a-input placeholder="请输入企业明细流水号" v-decorator="['listSeqNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="交易金额">
+          <a-input placeholder="请输入交易金额" v-decorator="['txAmt', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="摘要码">
+          <a-input placeholder="请输入摘要码" v-decorator="['rmrkCode', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="摘要说明">
+          <a-input placeholder="请输入摘要说明" v-decorator="['rmrk', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="实际交易成功金额">
+          <a-input placeholder="请输入实际交易成功金额" v-decorator="['succAmt', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="状态">
+          <a-input placeholder="请输入状态" v-decorator="['state', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="出错码">
+          <a-input placeholder="请输入出错码" v-decorator="['errCode', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="出错信息">
+          <a-input placeholder="请输入出错信息" v-decorator="['errMsg', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="核心账务日期">
+          <a-input placeholder="请输入核心账务日期" v-decorator="['hostDate', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="核心流水号">
+          <a-input placeholder="请输入核心流水号" v-decorator="['hostSeqNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="自定义自段1">
+          <a-input placeholder="请输入自定义自段1" v-decorator="['usrDefine1', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="自定义自段2">
+          <a-input placeholder="请输入自定义自段2" v-decorator="['usrDefine2', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="数据日期">
+          <a-input placeholder="请输入数据日期" v-decorator="['dataDate', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="导入日期">
+          <a-input placeholder="请输入导入日期" v-decorator="['loadDate', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="法人标识">
+          <a-input placeholder="请输入法人标识" v-decorator="['legalNo', {}]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="天入库表编号-对不同的表名唯一">
+          <a-input placeholder="请输入天入库表编号-对不同的表名唯一" v-decorator="['dtnum', validatorRules.dtnum ]" />
+        </a-form-item>
+        <a-form-item
+          :labelCol="labelCol"
+          :wrapperCol="wrapperCol"
+          label="dttime">
+          <a-date-picker v-decorator="[ 'dttime', {}]" />
+        </a-form-item>
+		
+      </a-form>
+    </a-spin>
+  </a-modal>
+</template>
+
+<script>
+  import { httpAction } from '@/api/manage'
+  import pick from 'lodash.pick'
+  import moment from "moment"
+
+  export default {
+    name: "GkjzzfplcwmxbModal",
+    data () {
+      return {
+        title:"操作",
+        visible: false,
+        model: {},
+        labelCol: {
+          xs: { span: 24 },
+          sm: { span: 5 },
+        },
+        wrapperCol: {
+          xs: { span: 24 },
+          sm: { span: 16 },
+        },
+
+        confirmLoading: false,
+        form: this.$form.createForm(this),
+        validatorRules:{
+        dtnum:{rules: [{ required: true, message: '请输入天入库表编号-对不同的表名唯一!' }]},
+        },
+        url: {
+          add: "/gkjzzfplcwmxb/gkjzzfplcwmxb/add",
+          edit: "/gkjzzfplcwmxb/gkjzzfplcwmxb/edit",
+        },
+      }
+    },
+    created () {
+    },
+    methods: {
+      add () {
+        this.edit({});
+      },
+      edit (record) {
+        this.form.resetFields();
+        this.model = Object.assign({}, record);
+        this.visible = true;
+        this.$nextTick(() => {
+          this.form.setFieldsValue(pick(this.model,'txDate','txTime','txSeqNo','serialNo','acctNo','bankNo','bankName','acctType','acctName','certType','certCode','listSeqNo','txAmt','rmrkCode','rmrk','succAmt','state','errCode','errMsg','hostDate','hostSeqNo','usrDefine1','usrDefine2','dataDate','loadDate','legalNo','dtnum'))
+		  //时间格式化
+          this.form.setFieldsValue({dttime:this.model.dttime?moment(this.model.dttime):null})
+        });
+
+      },
+      close () {
+        this.$emit('close');
+        this.visible = false;
+      },
+      handleOk () {
+        const that = this;
+        // 触发表单验证
+        this.form.validateFields((err, values) => {
+          if (!err) {
+            that.confirmLoading = true;
+            let httpurl = '';
+            let method = '';
+            if(!this.model.id){
+              httpurl+=this.url.add;
+              method = 'post';
+            }else{
+              httpurl+=this.url.edit;
+               method = 'put';
+            }
+            let formData = Object.assign(this.model, values);
+            //时间格式化
+            formData.dttime = formData.dttime?formData.dttime.format():null;
+            
+            console.log(formData)
+            httpAction(httpurl,formData,method).then((res)=>{
+              if(res.success){
+                that.$message.success(res.message);
+                that.$emit('ok');
+              }else{
+                that.$message.warning(res.message);
+              }
+            }).finally(() => {
+              that.confirmLoading = false;
+              that.close();
+            })
+
+
+
+          }
+        })
+      },
+      handleCancel () {
+        this.close()
+      },
+
+
+    }
+  }
+</script>
+
+<style lang="less" scoped>
+
+</style>

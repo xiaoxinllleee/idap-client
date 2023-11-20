@@ -1,0 +1,31 @@
+.leftfix {
+  float: left;
+}
+
+.rightfix {
+  float: right;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+<!--用来测试div所处位置-->
+.csbk {
+  border: 1px #fff solid;
+}
+
+.font14{
+  font-size: 14px;
+}
+.font16{
+  font-size: 16px;
+}
+.font12{
+  font-size: 12px;
+}
+.cfff{
+  color: #fff;
+}
